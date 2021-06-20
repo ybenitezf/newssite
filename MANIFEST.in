@@ -1,0 +1,4 @@
+graft newssite/migrations
+graft newssite/static
+graft newssite/templates
+global-exclude *.py[cod]
