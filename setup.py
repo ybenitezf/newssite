@@ -23,12 +23,13 @@ setup(
     setup_requires=['pytest-runner'],
     tests_require=[
         'pytest',
-        'pytest-cov',
+        'pytest-cov'
     ],
     install_requires=[
         'wheel',
         'Flask',
         'python-dotenv',
+        'roman-discovery==0.2.0'
     ],
     classifiers=[
         'Environment :: Web Environment',
