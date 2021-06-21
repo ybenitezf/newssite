@@ -1,0 +1,9 @@
+{
+  "name": "newssite-assets",
+  "version": "1.0.0",
+  "description": "Js & CSS para newssite",
+  "main": "index.js",
+  "repository": "https://github.com/ybenitezf/newssite",
+  "author": "Yoel Benítez Fonseca",
+  "license": "GPL-3.0-or-later"
+}
