@@ -29,7 +29,8 @@ setup(
         'wheel',
         'Flask',
         'python-dotenv',
-        'roman-discovery==0.2.0'
+        'roman-discovery>=0.2.0',
+        'Flask-Static-Digest>=0.2.1'
     ],
     classifiers=[
         'Environment :: Web Environment',

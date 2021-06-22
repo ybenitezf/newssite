@@ -1,5 +1,4 @@
-#.PHONY: clean clean-statics clean-test clean-pyc clean-build help
-.PHONY: clean clean-test clean-pyc clean-build help
+.PHONY: clean clean-statics clean-test clean-pyc clean-build help
 .DEFAULT_GOAL := help
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
@@ -19,8 +18,10 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
+clean: clean-statics clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
+clean-statics:
+	flask digest clean
 
 clean-build: ## remove build artifacts
 	rm -fr build/
@@ -28,13 +29,11 @@ clean-build: ## remove build artifacts
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
-#	find . -name 'vendor.*.js' -exec rm -f {} +
-#	find . -name '*.map' -exec rm -f {} +
-#	rm -f newssite/static/js/app.js
-#	rm -f newssite/static/js/runtime.js
-#	rm -f newssite/templates/jsfiles.html
-#	rm -f newssite/static/css/style.css
-#	rm -f newssite/static/css/utils.css
+	find . -name 'vendor.*.js' -exec rm -f {} +
+	find ./newssite/static/assets -name '*.css' -exec rm -f {} +
+	find ./newssite/static/assets -name '*.js' -exec rm -f {} +
+	find ./newssite/static/assets -name '*.txt' -exec rm -f {} +
+	rm -f newssite/templates/jsimports.html
 
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
@@ -58,17 +57,16 @@ coverage: ## check code coverage quickly with the default Python
 	python setup.py test --addopts --cov
 
 
-dist: clean ## builds source and wheel package
+dist: clean statics ## builds source and wheel package
 	pip install --upgrade build
 	python3 -m build
-	ls -l dist
+	ls -lh dist
 
-#statics: ## Build statics
-#	cd jsclient && yarn run build && cd ..
-#	cd styles && yarn run build && cd ..
-#	flask digest compile
+statics: ## Build statics
+	cd assets && yarn run build && cd ..
+	flask digest compile
 
 dev: ## setup development enviroment
 	python -m pip install -e .
-	@$(MAKE) -f $(THIS_FILE) clean
-#	@$(MAKE) -f $(THIS_FILE) statics
+#	@$(MAKE) -f $(THIS_FILE) clean
+	@$(MAKE) -f $(THIS_FILE) statics

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title or "Adelante" }}</title>
+
+    <link href="{{ static_url_for('static', filename='assets/bundle.css') }}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    {% block page_content %}{% endblock %}
+    {% include "jsimports.html" %}
+</body>
+</html>
