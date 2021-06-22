@@ -63,7 +63,7 @@ dist: clean statics ## builds source and wheel package
 	ls -lh dist
 
 statics: ## Build statics
-	cd assets && yarn run build && cd ..
+	cd assets && yarn install && yarn run build && cd ..
 	flask digest compile
 
 dev: ## setup development enviroment
