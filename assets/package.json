@@ -31,6 +31,7 @@
   "dependencies": {
     "@material/button": "^11.0.0",
     "@material/ripple": "^11.0.0",
+    "@material/typography": "^11.0.0",
     "stimulus": "^2.0.0"
   }
 }
