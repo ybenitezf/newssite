@@ -77,6 +77,7 @@ module.exports = [{
                 sassOptions: {
                     importer: materialImporter,
                     includePaths: ['./node_modules'],
+                    quietDeps: true,
                 },
               },
             },
