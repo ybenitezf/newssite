@@ -29,9 +29,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@material/button": "^11.0.0",
-    "@material/ripple": "^11.0.0",
-    "@material/typography": "^11.0.0",
+    "@materializecss/materialize": "^1.1.0-alpha",
     "stimulus": "^2.0.0"
   }
 }
