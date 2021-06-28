@@ -1,7 +1,6 @@
-@use "@material/typography/mdc-typography";
-@use "@material/button/styles";
+@import "mytheme";
+@import "@materializecss/materialize/sass/materialize.scss";
 
-
-// .foo-button {
-//     @include button.container-fill-color(darksalmon);
-// }
+.page-breadcrumb {
+    padding: 0px 10px;
+}
