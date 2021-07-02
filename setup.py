@@ -30,7 +30,10 @@ setup(
         'Flask',
         'python-dotenv',
         'roman-discovery>=0.2.0',
-        'Flask-Static-Digest>=0.2.1'
+        'Flask-Static-Digest>=0.2.1',
+        'Flask-SQLAlchemy',
+        'Flask-Migrate',
+        'adelacommon @ https://github.com/ybenitezf/adela-common/releases/download/v0.0.3/adelacommon-0.0.3-py3-none-any.whl'
     ],
     classifiers=[
         'Environment :: Web Environment',
