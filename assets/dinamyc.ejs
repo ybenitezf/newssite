@@ -1,3 +1,16 @@
-<% htmlWebpackPlugin.files.js.forEach(function(jsfile) { %>
-    <script src="{{ static_url_for('static', filename='assets/<%= jsfile %>') }}"></script>
-<% }); %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <% htmlWebpackPlugin.files.css.forEach(function(cssfile) { %>
+        <link href="{{ static_url_for('static', filename='assets/<%= cssfile %>') }}" type="text/css" rel="stylesheet" />
+    <% }); %>
+    {% block htmlHeader %}{% endblock %}
+</head>
+<body>
+    {% block htmlBody %}
+    <% htmlWebpackPlugin.files.js.forEach(function(jsfile) { %>
+        <script src="{{ static_url_for('static', filename='assets/<%= jsfile %>') }}"></script>
+    <% }); %>
+    {% endblock %}
+</body>
+</html>
